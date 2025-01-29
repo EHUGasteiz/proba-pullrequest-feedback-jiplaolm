@@ -94,7 +94,10 @@ public class IngenieriaSoftware {
      */
     public List<Alumno> getAlumnosQueHanAprobadoTodosEntregables() {
         // TODO: Ejercicio 11
-        return null;
+        return lMatriculados
+                .stream()
+                .filter(Alumno::haAprobadoTodosLosEntregables)
+                .toList();
     }
 
     /**
