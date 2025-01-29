@@ -60,8 +60,7 @@ public class Alumno {
      *         entregable)
      */
     public double calcularMediaEntregables() {
-        // TODO: Ejercicio 1
-        return 0.0;
+        return lEntregables.stream().mapToDouble(Entregable::getNota).average().orElse(0);
     }
 
     /**
