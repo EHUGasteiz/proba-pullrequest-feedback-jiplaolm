@@ -70,16 +70,17 @@ public class Alumno {
      *         enunciado
      */
     public double calcularNotaFinal() {
-        // TODO: Ejercicio 2
-        return 0.0;
+        return 0.6*calcularMediaEntregables() + 0.4*notaExamen;
     }
 
     /**
      * haAprobadoTodosLosEntreagables
      */
     public boolean haAprobadoTodosLosEntregables() {
-        // TODO: Ejercicio 3
-        return false;
+        if (lEntregables.isEmpty())
+            return false;
+        else
+            return lEntregables.stream().allMatch(e -> e.getNota() >= 5);
     }
 
     /**
@@ -89,8 +90,9 @@ public class Alumno {
      *         los entregables y false en caso contrario
      */
     public boolean superaNotaEnAlgunEntregable(double pNota) {
-        // TODO: Ejercicio 4
-        return false;
+       return lEntregables
+               .stream()
+               .anyMatch(e -> e.getNota() > pNota);
     }
 
 }

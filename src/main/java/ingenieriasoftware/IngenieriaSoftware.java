@@ -80,8 +80,11 @@ public class IngenieriaSoftware {
      *         asignatura (sin valores repetidos)
      */
     public List<String> getPaisesRepresentados() {
-        // TODO: Ejercicio 10
-        return null;
+        return lMatriculados
+                .stream()
+                .map(Alumno::getPais)
+                .distinct()
+                .toList();
     }
 
     /**
@@ -134,8 +137,9 @@ public class IngenieriaSoftware {
      * @return devuelve la lista de alumnos de cada país
      */
     public Map<String, List<Alumno>> getAlumnosPorPais() {
-        // TODO: Ejercicio 15
-        return null;
+        return lMatriculados
+                .stream()
+                .collect(groupingBy(Alumno::getPais));
     }
 
     /**
